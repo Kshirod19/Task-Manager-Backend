@@ -12,6 +12,11 @@ export interface ITask {
   completed: boolean;
 }
 
+// Check if db is initialized (not null) before proceeding
+if (!db) {
+  throw new Error("Firebase Firestore instance is not initialized.");
+}
+
 const tasksCollection = db.collection("tasks");
 
 // Create a new task in Firestore
